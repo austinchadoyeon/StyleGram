@@ -1,0 +1,37 @@
+{
+  "name": "whatdoyouthink-",
+  "version": "1.0.0",
+  "description": "MVP project",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js",
+    "react-dev": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austinchadoyeon/WhatDoYouThink-.git"
+  },
+  "author": "Austin Yeon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/austinchadoyeon/WhatDoYouThink-/issues"
+  },
+  "homepage": "https://github.com/austinchadoyeon/WhatDoYouThink-#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.9",
+    "webpack": "^5.43.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
