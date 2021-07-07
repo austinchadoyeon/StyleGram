@@ -7,9 +7,21 @@ export default class App extends React.Component {
     this.state = {
       loggedIn: false,
     }
+    this.handleLogin = this.handleLogin.bind(this);
+
   }
 
+  handleLogin() {
+    this.setState({
+      loggedIn: true
+    })
+  }
 
+  handleSignUp() {
+    this.setState({
+      loggedIn: true
+    })
+  }
 
   render() {
     if (this.state.loggedIn === false) {
