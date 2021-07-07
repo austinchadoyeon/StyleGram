@@ -1,5 +1,6 @@
 import React from 'react';
 import Homepage from './Homepage.jsx';
+import SignedIn from './SignedIn.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class App extends React.Component {
       loggedIn: false,
     }
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
 
   }
 
@@ -23,6 +25,12 @@ export default class App extends React.Component {
     })
   }
 
+  handleLogout() {
+    this.setState({
+      loggedIn: false
+    })
+  }
+
   render() {
     if (this.state.loggedIn === false) {
       return (
@@ -30,7 +38,7 @@ export default class App extends React.Component {
       )
     } else {
       return (
-        <h1>user logged in</h1>
+        <SignedIn handleLogout={this.handleLogout}/>
       )
     }
   }

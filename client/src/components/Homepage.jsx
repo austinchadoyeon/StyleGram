@@ -28,7 +28,7 @@ export default class Homepage extends React.Component {
 
   showSignupModal (e) {
     this.setState({
-      showSignup: !this.state.showSignUp
+      showSignup: !this.state.showSignup
     })
   }
 
