@@ -29,7 +29,7 @@ export default class Homepage extends React.Component {
         <h1>Welcome</h1>
         <button>Sign Up</button>
         <button onClick={e => {this.showLoginModal();}}>Login</button>
-        <Login show={this.state.showLogin}/>
+        <Login onClick={this.showLoginModal} show={this.state.showLogin}/>
       </div>
     )
   }

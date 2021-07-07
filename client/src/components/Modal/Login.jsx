@@ -16,13 +16,23 @@ export default class Login extends React.Component {
       <div className='modal'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h3 className='modal-title'>Title</h3>
+            <h3 className='modal-title'>Welcome back!</h3>
           </div>
           <div className='modal-body'>
-            Content
+            <form>
+              <label>
+                Username:
+                <input type='text' name='username'/>
+              </label>
+              <label>
+                Password:
+                <input type='text' name='password' />
+              </label>
+            </form>
           </div>
           <div className='modal-footer'>
-
+            <button className='button'>Login</button>
+            <button onClick={e => {this.props.onClick()}}className='button'>Cancel</button>
           </div>
         </div>
       </div>
