@@ -26,7 +26,11 @@ export default class App extends React.Component {
   render() {
     if (this.state.loggedIn === false) {
       return (
-        <Homepage />
+        <Homepage handleLogin={this.handleLogin}/>
+      )
+    } else {
+      return (
+        <h1>user logged in</h1>
       )
     }
   }

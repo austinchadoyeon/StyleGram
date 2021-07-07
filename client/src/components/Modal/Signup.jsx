@@ -1,15 +1,15 @@
 import React from 'react';
 import './modal.css';
 
-function Login (props) {
+function Signup (props) {
   if (!props.show) {
     return null;
   }
-  return (
+  return(
     <div className='modal'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h3 className='modal-title'>Welcome back!</h3>
+            <h3 className='modal-title'>Welcome!</h3>
           </div>
           <div className='modal-body'>
             <form>
@@ -24,12 +24,12 @@ function Login (props) {
             </form>
           </div>
           <div className='modal-footer'>
-            <button className='button' onClick={e => {props.handleLogin()}}>Login</button>
-            <button onClick={e => {props.onClick()}}className='button'>Cancel</button>
+            <button className='button'>Signup</button>
+            <button onClick={e => {props.showSignup()}}className='button'>Cancel</button>
           </div>
         </div>
       </div>
   )
 }
 
-export default Login;
+export default Signup;
