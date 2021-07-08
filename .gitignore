@@ -105,3 +105,6 @@ dist
 
 # Connection to DB
 connection.js
+
+#csv files
+users.csv

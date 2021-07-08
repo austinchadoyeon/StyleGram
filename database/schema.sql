@@ -1,16 +1,10 @@
-DROP DATABASE IF EXISTS MVP;
-
-CREATE DATABASE MVP;
-
-\c MVP;
-
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
-  firstName VARCHAR (25) NOT NULL,
-  lastName VARCHAR (25) NOT NULL,
-  email VARCHAR (20) NOT NULL,
-  username VARCHAR (20) NOT NULL,
-  password VARCHAR (25) NOT NULL,
+  firstName VARCHAR (50) NOT NULL,
+  lastName VARCHAR (50) NOT NULL,
+  email VARCHAR (50) NOT NULL,
+  username VARCHAR (50) NOT NULL,
+  password VARCHAR (50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS images (
@@ -20,20 +14,13 @@ CREATE TABLE IF NOT EXISTS images (
   price VARCHAR (20),
   brand VARCHAR (50),
   mainUrl VARCHAR(500),
-  style VARCHAR (10),
-  FOREIGN KEY (userId)
-    REFERENCES users (id)
-);
-
-CREATE TABLE IF NOT EXISTS imageLikes (
-  id SERIAL PRIMARY KEY,
-  imageId INT NOT NULL,
+  style VARCHAR (20),
   love INT NOT NULL,
   likeIt INT NOT NULL,
-  improveIt NOT NULL,
+  improveIt INT NOT NULL,
   dislikeIt INT NOT NULL,
-  FOREIGN KEY (imageId)
-    REFERENCES images (id)
+  FOREIGN KEY (userId)
+    REFERENCES users (id)
 );
 
 CREATE TABLE IF NOT EXISTS comments (
