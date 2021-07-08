@@ -26,7 +26,7 @@ export default class SignedIn extends React.Component {
           <Nav>
             <Nav.Link>Home</Nav.Link>
             <Nav.Link onClick={this.postPic}>Post a Pic</Nav.Link>
-            <PostPic show={this.state.showPostPic}/>
+            <PostPic cancel={this.postPic} show={this.state.showPostPic}/>
             <Nav.Link>Rate a Fit</Nav.Link>
             <Nav.Link>Trending</Nav.Link>
             <Nav.Link>Upgrade</Nav.Link>

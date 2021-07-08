@@ -20,6 +20,10 @@ export default function PostPic(props) {
             </Form.Group>
           </Form>
         </Modal.Body>
+        <Modal.Footer>
+          <Button>Submit</Button>
+          <Button onClick={props.cancel}>Cancel</Button>
+        </Modal.Footer>
       </Modal>
     </>
   )
