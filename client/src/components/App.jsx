@@ -1,6 +1,7 @@
 import React from 'react';
 import Homepage from './Homepage.jsx';
 import SignedIn from './SignedIn.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends React.Component {
   constructor(props) {

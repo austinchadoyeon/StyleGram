@@ -2,6 +2,8 @@ import React from 'react';
 import './modal.css';
 
 function Signup (props) {
+  const stylesArray = ['Casual', 'Bohemian', 'Punk', 'Preppy', 'Trendy', 'Vintage', 'Sporty', 'Artsy', 'High Street', 'Designer', 'Hipster', 'Cowgirl/Cowboy', 'Formal']
+
   if (!props.show) {
     return null;
   }
@@ -9,13 +11,25 @@ function Signup (props) {
     <div className='modal'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h3 className='modal-title'>Welcome!</h3>
+            <h3 className='modal-title'>Welcome! Sign up here:</h3>
           </div>
           <div className='modal-body'>
             <form>
               <label>
+                First Name:
+                <input type='text' name='firstName'/>
+              </label>
+              <label>
+                Last Name:
+                <input type='text' name='lastName' />
+              </label>
+              <label>
+                Email:
+                <input type='text' name='email' />
+              </label>
+              <label>
                 Username:
-                <input type='text' name='username'/>
+                <input type='text' name='username' />
               </label>
               <label>
                 Password:

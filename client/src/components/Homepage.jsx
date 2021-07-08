@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './Modal/Login.jsx';
 import Signup from './Modal/Signup.jsx';
+import Button from 'react-bootstrap/Button'
 
 export default class Homepage extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ export default class Homepage extends React.Component {
       firstName: '',
       lastName: '',
       email: '',
-      gender: '',
       styles: [],
       showLogin: false,
       showSignup: false,
@@ -36,9 +36,9 @@ export default class Homepage extends React.Component {
     return (
       <div>
         <h1>Welcome</h1>
-        <button onClick={e => {this.showSignupModal();}}>Sign Up</button>
+        <Button onClick={e => {this.showSignupModal();}}>Sign Up</Button>
         <Signup showSignup={this.showSignupModal} show={this.state.showSignup}/>
-        <button onClick={e => {this.showLoginModal();}}>Login</button>
+        <Button onClick={e => {this.showLoginModal();}}>Login</Button>
         <Login onClick={this.showLoginModal} handleLogin={this.props.handleLogin} show={this.state.showLogin}/>
       </div>
     )
