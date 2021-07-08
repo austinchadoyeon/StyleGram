@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS images (
   price VARCHAR (20),
   brand VARCHAR (50),
   mainUrl VARCHAR(500),
+  style VARCHAR (10),
   FOREIGN KEY (userId)
     REFERENCES users (id)
 );
