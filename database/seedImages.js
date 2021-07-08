@@ -2,7 +2,7 @@ const fs = require ('fs');
 const client = require('./connection.js');
 const fastcsv = require('fast-csv');
 
-let stream = fs.createReadStream('database/data/users.csv');
+let stream = fs.createReadStream('database/data/images.csv');
 let csvData = [];
 let csvStream = fastcsv
   .parse()
@@ -12,7 +12,7 @@ let csvStream = fastcsv
   .on('end', function() {
     csvData.shift();
 
-    const queryStr = "INSERT INTO users (firstName, lastName, email, username, password) VALUES ($1, $2, $3, $4, $5)";
+    const queryStr = "INSERT INTO images (userId, caption, price, brand,mainURL, style, love, likeIt, improveIt, dislikeIt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
 
     csvData.forEach(row => {
       client.query(queryStr, row, (err, res) => {

@@ -108,3 +108,5 @@ connection.js
 
 #csv files
 users.csv
+images.csv
+comments.csv
