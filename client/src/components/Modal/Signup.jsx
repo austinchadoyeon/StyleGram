@@ -20,39 +20,40 @@ function Signup(props) {
           <Form>
             <Form.Group controlId='signupFirstName'>
               <Form.Label>First Name</Form.Label>
-              <Form.Control name='firstName' type='firstName' placeholder='Enter First Name'/>
+              <Form.Control name='firstName' type='firstName' placeholder='Enter First Name' onChange={props.handleInput}/>
             </Form.Group>
             <Form.Group controlId='signupLastName'>
               <Form.Label>Last Name</Form.Label>
-              <Form.Control name='lastName' type='lastName' placeholder='Enter Last Name'/>
+              <Form.Control name='lastName' type='lastName' placeholder='Enter Last Name' onChange={props.handleInput}/>
             </Form.Group>
             <Form.Group controlId='signupEmail'>
               <Form.Label>Email</Form.Label>
-              <Form.Control name='email' type='email' placeholder='Enter Email'/>
+              <Form.Control name='email' type='email' placeholder='Enter Email' onChange={props.handleInput}/>
               <Form.Text className='text-muted'>
                 Your email will never be shared with anyone else.
               </Form.Text>
             </Form.Group>
             <Form.Group controlId='signupUsername'>
               <Form.Label>Username</Form.Label>
-              <Form.Control name='username' type='username' placeholder='Create a username'/>
+              <Form.Control name='username' type='username' placeholder='Create a username' onChange={props.handleInput}/>
               <Form.Text className='text-muted'>
                 This will be visible to other members.
               </Form.Text>
             </Form.Group>
             <Form.Group controlId='signupPassword'>
               <Form.Label>Password</Form.Label>
-              <Form.Control name='password' type='password' placeholder='Create a password'/>
+              <Form.Control name='password' type='password' placeholder='Create a password' onChange={props.handleInput}/>
               <Form.Text className='text-muted'>
                 Must contain atleast 8 characters, of which 1 must be special.
               </Form.Text>
             </Form.Group>
             <Form.Group>
               <Form.Label>What's your style? (Select as many as you want!)</Form.Label>
-              {stylesArray.map((style) => (
+              {stylesArray.map((style, index) => (
                 <Form.Check
                   type={'checkbox'}
                   label={style}
+                  key={index}
                 />
               ))}
             </Form.Group>
