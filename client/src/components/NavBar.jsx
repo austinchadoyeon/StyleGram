@@ -15,10 +15,10 @@ export default function NavigationBar (props) {
             navbarScroll
           >
             <Nav.Link>Home</Nav.Link>
-            <Nav.Link onClick={props.postPic}>Post a Pic</Nav.Link>
-            <PostPic cancel={props.postPic} show={props.show}/>
-            <Nav.Link>Rate a Fit</Nav.Link>
-            <Nav.Link>Trending</Nav.Link>
+            <Nav.Link onClick={props.togglePostPic}>Post a Pic</Nav.Link>
+            <PostPic cancel={props.togglePostPic} show={props.show}/>
+            <Nav.Link onClick={props.toggleRateAFit}>Rate a Fit</Nav.Link>
+            <Nav.Link onClick={props.toggleTrending}>Trending</Nav.Link>
             <Nav.Link>Upgrade</Nav.Link>
             <Nav.Link>Help</Nav.Link>
             <Nav.Link onClick={props.handleLogout}>Logout</Nav.Link>

@@ -13,18 +13,40 @@ export default class SignedIn extends React.Component {
       rateAFit: false,
       trending: false,
     }
-    this.postPic = this.postPic.bind(this);
+    this.togglePostPic = this.togglePostPic.bind(this);
+    this.toggleRateAFit = this.toggleRateAFit.bind(this);
+    this.toggleTrending = this.toggleTrending.bind(this);
   }
 
-  postPic (e) {
+  togglePostPic (e) {
     this.setState({
       showPostPic: !this.state.showPostPic
     })
   }
 
+  toggleRateAFit(e) {
+    this.setState({
+      home: false,
+      trending: false,
+      rateAFit: true
+    })
+  }
+
+  toggleTrending(e) {
+    this.setState({
+      home: false,
+      rateAFit: false,
+      trending: true
+    })
+  }
+
   render () {
-    return (
-      <NavigationBar handleLogout={this.props.handleLogout} postPic={this.postPic} show={this.state.showPostPic}/>
-    )
+    if (this.state.home) {
+      return (
+        <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}/>
+      )
+    } else if (this.state.rateAFit) {
+      <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}/>
+    }
   }
 }
