@@ -18,6 +18,7 @@ export default class Homepage extends React.Component {
     }
     this.showLoginModal = this.showLoginModal.bind(this);
     this.showSignupModal = this.showSignupModal.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   showLoginModal (e) {
@@ -32,6 +33,12 @@ export default class Homepage extends React.Component {
     })
   }
 
+  handleInput (e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
@@ -39,7 +46,7 @@ export default class Homepage extends React.Component {
         <Button onClick={e => {this.showSignupModal();}}>Sign Up</Button>
         <Signup showSignup={this.showSignupModal} show={this.state.showSignup}/>
         <Button onClick={e => {this.showLoginModal();}}>Login</Button>
-        <Login onClick={this.showLoginModal} handleLogin={this.props.handleLogin} show={this.state.showLogin}/>
+        <Login onClick={this.showLoginModal} handleLogin={this.props.handleLogin} show={this.state.showLogin} handleInput={this.handleInput}/>
       </div>
     )
   }
