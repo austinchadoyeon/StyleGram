@@ -12,7 +12,7 @@ let csvStream = fastcsv
   .on('end', function() {
     csvData.shift();
 
-    const queryStr = "INSERT INTO images (userId, caption, price, brand,mainURL, style, love, likeIt, improveIt, dislikeIt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
+    const queryStr = "INSERT INTO images (userId, username, caption, price, brand,mainURL, style, love, likeIt, improveIt, dislikeIt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)";
 
     csvData.forEach(row => {
       client.query(queryStr, row, (err, res) => {

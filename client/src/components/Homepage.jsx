@@ -64,7 +64,7 @@ export default class Homepage extends React.Component {
             <Button className='signupButton' variant='secondary' size='lg' onClick={e => {this.showSignupModal();}}>Sign Up</Button>
             <Signup showSignup={this.showSignupModal} show={this.state.showSignup} handleInput={this.handleInput}/>
             <Button className='loginButton' variant='secondary' size='lg' onClick={e => {this.showLoginModal();}}>Login</Button>
-            <Login onClick={this.showLoginModal} handleLogin={this.handleLogin} show={this.state.showLogin} handleInput={this.handleInput}/>
+            <Login onClick={this.showLoginModal} handleLogin={this.handleLogin} show={this.state.showLogin} handleInput={this.handleInput} getUsername={this.props.getUsername}/>
           </div>
           <div className='homepageDescription'>
             <h4>Our Story</h4>

@@ -17,7 +17,7 @@ function Login(props) {
           <Form>
             <Form.Group controlId='username'>
               <Form.Label>Username</Form.Label>
-              <Form.Control name='username' type='username' placeholder='Enter username' onChange={props.handleInput}/>
+              <Form.Control name='username' type='username' placeholder='Enter username' onChange={e => {props.handleInput(e); props.getUsername(e)}}/>
             </Form.Group>
             <Form.Group controlId='password'>
               <Form.Label>Password</Form.Label>

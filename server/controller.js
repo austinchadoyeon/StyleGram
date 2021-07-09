@@ -14,10 +14,21 @@ const controllers = {
   },
 
   getUser: function(req, res) {
-    console.log('params', req.params);
     let {username} = req.params;
-    console.log(username);
     let queryStr = `SELECT * FROM users WHERE users.username = '${username}'`;
+
+    connection.query(queryStr, (err, results) => {
+      if (err) {
+        res.status(404).send(err);
+      } else {
+        res.status(200).send(results.rows);
+      }
+    })
+  },
+
+  getUserHome: function (req, res) {
+    let {username} = req.params;
+    let queryStr = `SELECT * FROM images WHERE images.username = '${username}'`;
 
     connection.query(queryStr, (err, results) => {
       if (err) {

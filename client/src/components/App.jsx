@@ -8,10 +8,17 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       loggedIn: false,
+      username: ''
     }
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.getUsername = this.getUsername.bind(this);
+  }
 
+  getUsername (e) {
+    this.setState({
+      username: e.target.value
+    })
   }
 
   handleLogin() {
@@ -35,11 +42,11 @@ export default class App extends React.Component {
   render() {
     if (this.state.loggedIn === false) {
       return (
-        <Homepage handleLogin={this.handleLogin}/>
+        <Homepage handleLogin={this.handleLogin} getUsername={this.getUsername}/>
       )
     } else {
       return (
-        <SignedIn handleLogout={this.handleLogout}/>
+        <SignedIn handleLogout={this.handleLogout} loggedInUser={this.state.username}/>
       )
     }
   }

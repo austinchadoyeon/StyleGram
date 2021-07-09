@@ -60,3 +60,11 @@
   font-size: 20px;
   margin-bottom: 30px;
 }
+
+.navBar {
+  font-size: medium;
+}
+
+.homeDetails {
+  display: inline-block;
+}

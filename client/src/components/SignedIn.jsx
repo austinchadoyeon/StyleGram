@@ -4,37 +4,53 @@ import Nav from 'react-bootstrap/Nav';
 import PostPic from './Modal/Post.jsx';
 import NavigationBar from './NavBar.jsx';
 import RateAFit from './RateAFit.jsx';
+import UserHome from './userHome.jsx';
 import axios from 'axios';
 
 export default class SignedIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      home: true,
+      home: false,
       showPostPic: false,
-      rateAFit: false,
+      rateAFit: true,
       trending: false,
       help: false,
-      imageArray: []
+      imageArray: [],
+      mainUrl: '',
+      brand: '',
+      price: '',
+      style: '',
+      userImages: [],
     }
     this.togglePostPic = this.togglePostPic.bind(this);
     this.toggleRateAFit = this.toggleRateAFit.bind(this);
     this.toggleTrending = this.toggleTrending.bind(this);
     this.toggleHelp = this.toggleHelp.bind(this);
+    this.handlePostPic = this.handlePostPic.bind(this);
+    this.toggleHome = this.toggleHome.bind(this);
   }
 
   componentDidMount() {
     axios.get('/rateAFit')
       .then(res => {
-        console.log(res.data);
         this.setState({
           imageArray: res.data
+        });
+        return axios.get(`/home/${this.props.loggedInUser}`, {
+          username: this.props.loggedInUser
+        })
+      })
+      .then(res2 => {
+        console.log('2nd axios request:', res2.data);
+        this.setState({
+          userImages: res2.data
         })
       })
       .catch(err => console.log(err))
   }
 
-  toggleHome (e) {
+  toggleHome(e) {
     this.setState({
       home: true,
       trending: false,
@@ -42,7 +58,7 @@ export default class SignedIn extends React.Component {
     })
   }
 
-  togglePostPic (e) {
+  togglePostPic(e) {
     this.setState({
       showPostPic: !this.state.showPostPic
     })
@@ -70,18 +86,26 @@ export default class SignedIn extends React.Component {
     })
   }
 
+  handlePostPic() {
+
+  }
 
 
-  render () {
+
+  render() {
     if (this.state.home) {
       return (
-        <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}toggleHelp={this.toggleHelp} showHelp={this.state.help}/>
+        <div className='userHome'>
+          <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending} toggleHelp={this.toggleHelp} showHelp={this.state.help} toggleHome={this.toggleHome}/>
+          <h4>Your posts:</h4>
+          {this.state.userImages.map(image => <UserHome obj={image} key={image.id} />)}
+        </div>
       )
     } else if (this.state.rateAFit) {
       return (
         <div className='rateAFit'>
-          <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending} toggleHelp={this.toggleHelp} showHelp={this.state.help}/>
-          {this.state.imageArray.map(image => <RateAFit obj={image} key={image.id}/>)}
+          <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending} toggleHelp={this.toggleHelp} showHelp={this.state.help} toggleHome={this.toggleHome}/>
+          {this.state.imageArray.map(image => <RateAFit obj={image} key={image.id} />)}
         </div>
       )
     }

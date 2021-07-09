@@ -24,7 +24,7 @@ export default function RateAFit (props) {
           <p>Price: ${props.obj.price}</p>
         </div>
         <h3>
-          <FcLike/>
+          <FcLike />
           <TiThumbsOk/>
           <TiHeartHalfOutline/>
           <FcDislike/>

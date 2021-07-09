@@ -6,7 +6,7 @@ import Help from './Modal/Help.jsx';
 
 export default function NavigationBar (props) {
   return (
-      <Navbar bg='light' expand='xl'>
+      <Navbar className='navBar' bg='light' expand='xl' fixed='top'>
         <Navbar.Brand>StyleGram</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id='navbarScroll'>
@@ -15,7 +15,7 @@ export default function NavigationBar (props) {
             style={{ maxHeight: '150px' }}
             navbarScroll
           >
-            <Nav.Link>Home</Nav.Link>
+            <Nav.Link onClick={props.toggleHome}>Home</Nav.Link>
             <Nav.Link onClick={props.togglePostPic}>Post a Pic</Nav.Link>
             <PostPic cancel={props.togglePostPic} show={props.show}/>
             <Nav.Link onClick={props.toggleRateAFit}>Rate a Fit</Nav.Link>

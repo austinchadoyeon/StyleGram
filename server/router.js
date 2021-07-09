@@ -9,4 +9,8 @@ router
   .route('/login/:username')
     .get(controller.getUser)
 
+router
+  .route('/home/:username')
+    .get(controller.getUserHome)
+
 module.exports = router;
