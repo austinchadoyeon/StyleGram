@@ -70,6 +70,8 @@ export default class SignedIn extends React.Component {
     })
   }
 
+
+
   render () {
     if (this.state.home) {
       return (
@@ -79,7 +81,7 @@ export default class SignedIn extends React.Component {
       return (
         <div className='rateAFit'>
           <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending} toggleHelp={this.toggleHelp} showHelp={this.state.help}/>
-          {this.state.imageArray.map(image => <RateAFit obj={image} />)}
+          {this.state.imageArray.map(image => <RateAFit obj={image} key={image.id}/>)}
         </div>
       )
     }

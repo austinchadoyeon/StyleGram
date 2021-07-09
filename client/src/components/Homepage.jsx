@@ -20,6 +20,7 @@ export default class Homepage extends React.Component {
     this.showLoginModal = this.showLoginModal.bind(this);
     this.showSignupModal = this.showSignupModal.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   showLoginModal (e) {
@@ -40,8 +41,18 @@ export default class Homepage extends React.Component {
     })
   }
 
-  handleLogin(e) {
-
+  handleLogin() {
+    let username = {
+      username: this.state.username
+    };
+    axios.get(`/login/${this.state.username}`, {username})
+      .then(res => {
+        console.log(res)
+        if (res.data[0].password === this.state.password) {
+          this.props.handleLogin();
+        }
+      })
+      .catch(err => alert('Incorrect username or password! Please try again'))
   }
 
   render() {
@@ -53,7 +64,7 @@ export default class Homepage extends React.Component {
             <Button className='signupButton' variant='secondary' size='lg' onClick={e => {this.showSignupModal();}}>Sign Up</Button>
             <Signup showSignup={this.showSignupModal} show={this.state.showSignup} handleInput={this.handleInput}/>
             <Button className='loginButton' variant='secondary' size='lg' onClick={e => {this.showLoginModal();}}>Login</Button>
-            <Login onClick={this.showLoginModal} handleLogin={this.props.handleLogin} show={this.state.showLogin} handleInput={this.handleInput}/>
+            <Login onClick={this.showLoginModal} handleLogin={this.handleLogin} show={this.state.showLogin} handleInput={this.handleInput}/>
           </div>
           <div className='homepageDescription'>
             <h4>Our Story</h4>

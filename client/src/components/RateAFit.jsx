@@ -13,21 +13,23 @@ export default function RateAFit (props) {
   };
 
   return (
-    <figure className='imageContainer'>
-      <img src={props.obj.mainurl} className='fitPics'/>
-      <figcaption className='caption'>@{props.obj.username}: {props.obj.caption}</figcaption>
-      <div className='details'>
-        <h6>The Details:</h6>
-        <p>Style-type: {props.obj.style}</p>
-        <p>Brand: {props.obj.brand}</p>
-        <p>Price: ${props.obj.price}</p>
-      </div>
-      <h3>
-        <FcLike/>
-        <TiThumbsOk/>
-        <TiHeartHalfOutline/>
-        <FcDislike/>
-      </h3>
-    </figure>
+    <div className='mainContainer'>
+      <figure className='imageContainer'>
+        <img src={props.obj.mainurl} className='fitPics'/>
+        <figcaption className='caption'>@{props.obj.username}: {props.obj.caption}</figcaption>
+        <div className='details'>
+          <h6>The Details:</h6>
+          <p>Style-type: {props.obj.style}</p>
+          <p>Brand: {props.obj.brand}</p>
+          <p>Price: ${props.obj.price}</p>
+        </div>
+        <h3>
+          <FcLike/>
+          <TiThumbsOk/>
+          <TiHeartHalfOutline/>
+          <FcDislike/>
+        </h3>
+      </figure>
+    </div>
   )
 }
