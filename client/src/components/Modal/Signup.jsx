@@ -60,7 +60,7 @@ function Signup(props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='primary'>
+          <Button variant='success'>
             Submit
           </Button>
           <Button variant='secondary' onClick={props.showSignup}>

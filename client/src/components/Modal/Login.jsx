@@ -26,7 +26,7 @@ function Login(props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='primary' onClick={props.handleLogin}>
+          <Button variant='success' onClick={props.handleLogin}>
             Sign In
           </Button>
           <Button variant='secondary' onClick={props.onClick}>

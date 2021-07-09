@@ -32,6 +32,14 @@ export default class SignedIn extends React.Component {
       .catch(err => console.log(err))
   }
 
+  toggleHome (e) {
+    this.setState({
+      home: true,
+      trending: false,
+      rateAFit: false
+    })
+  }
+
   togglePostPic (e) {
     this.setState({
       showPostPic: !this.state.showPostPic

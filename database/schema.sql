@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS images (
   id SERIAL PRIMARY KEY,
   userId INT NOT NULL,
+  username VARCHAR (50),
   caption VARCHAR (500),
   price VARCHAR (20),
   brand VARCHAR (50),

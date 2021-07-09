@@ -6,7 +6,7 @@ import PostPic from './Modal/Post.jsx';
 export default function NavigationBar (props) {
   return (
       <Navbar bg='light' expand='xl'>
-        <Navbar.Brand>Moda</Navbar.Brand>
+        <Navbar.Brand>StyleGram</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id='navbarScroll'>
           <Nav
