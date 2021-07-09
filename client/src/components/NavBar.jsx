@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import PostPic from './Modal/Post.jsx';
+import Help from './Modal/Help.jsx';
 
 export default function NavigationBar (props) {
   return (
@@ -11,7 +12,7 @@ export default function NavigationBar (props) {
         <Navbar.Collapse id='navbarScroll'>
           <Nav
             className="mr-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
+            style={{ maxHeight: '150px' }}
             navbarScroll
           >
             <Nav.Link>Home</Nav.Link>
@@ -20,7 +21,8 @@ export default function NavigationBar (props) {
             <Nav.Link onClick={props.toggleRateAFit}>Rate a Fit</Nav.Link>
             <Nav.Link onClick={props.toggleTrending}>Trending</Nav.Link>
             <Nav.Link>Upgrade</Nav.Link>
-            <Nav.Link>Help</Nav.Link>
+            <Nav.Link onClick={props.toggleHelp}>Help</Nav.Link>
+            <Help cancel={props.toggleHelp} show={props.showHelp}/>
             <Nav.Link onClick={props.handleLogout}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>

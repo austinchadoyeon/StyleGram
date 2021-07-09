@@ -14,11 +14,13 @@ export default class SignedIn extends React.Component {
       showPostPic: false,
       rateAFit: false,
       trending: false,
+      help: false,
       imageArray: []
     }
     this.togglePostPic = this.togglePostPic.bind(this);
     this.toggleRateAFit = this.toggleRateAFit.bind(this);
     this.toggleTrending = this.toggleTrending.bind(this);
+    this.toggleHelp = this.toggleHelp.bind(this);
   }
 
   componentDidMount() {
@@ -54,6 +56,12 @@ export default class SignedIn extends React.Component {
     })
   }
 
+  toggleHelp(e) {
+    this.setState({
+      help: !this.state.help
+    })
+  }
+
   toggleTrending(e) {
     this.setState({
       home: false,
@@ -65,13 +73,13 @@ export default class SignedIn extends React.Component {
   render () {
     if (this.state.home) {
       return (
-        <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}/>
+        <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}toggleHelp={this.toggleHelp} showHelp={this.state.help}/>
       )
     } else if (this.state.rateAFit) {
       return (
         <div className='rateAFit'>
-          <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}/>
-          {this.state.imageArray.map(image => <RateAFit obj={image}/>)}
+          <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending} toggleHelp={this.toggleHelp} showHelp={this.state.help}/>
+          {this.state.imageArray.map(image => <RateAFit obj={image} />)}
         </div>
       )
     }
