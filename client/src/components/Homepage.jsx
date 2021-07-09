@@ -1,7 +1,8 @@
 import React from 'react';
 import Login from './Modal/Login.jsx';
 import Signup from './Modal/Signup.jsx';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 export default class Homepage extends React.Component {
   constructor(props) {
@@ -37,6 +38,10 @@ export default class Homepage extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+  }
+
+  handleLogin(e) {
+
   }
 
   render() {

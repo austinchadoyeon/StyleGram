@@ -1,4 +1,3 @@
-
 .homepageBG {
   display:flex;
   align-items: center;
@@ -37,4 +36,27 @@
 .homepageTitle {
   text-align: center;
   color: aliceblue;
+}
+
+.rateAFitMain {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+  text-align: center;
+  margin: 17px;
+  border: solid black;
+  border-width: 3px;
+}
+
+.fitPics {
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+.caption{
+  font-size: 20px;
+  margin-bottom: 30px;
 }
