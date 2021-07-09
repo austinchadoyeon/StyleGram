@@ -3,6 +3,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import PostPic from './Modal/Post.jsx';
 import NavigationBar from './NavBar.jsx';
+import RateAFit from './RateAFit.jsx';
+import axios from 'axios';
 
 export default class SignedIn extends React.Component {
   constructor(props) {
@@ -12,10 +14,22 @@ export default class SignedIn extends React.Component {
       showPostPic: false,
       rateAFit: false,
       trending: false,
+      imageArray: []
     }
     this.togglePostPic = this.togglePostPic.bind(this);
     this.toggleRateAFit = this.toggleRateAFit.bind(this);
     this.toggleTrending = this.toggleTrending.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get('/rateAFit')
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          imageArray: res.data
+        })
+      })
+      .catch(err => console.log(err))
   }
 
   togglePostPic (e) {
@@ -46,7 +60,12 @@ export default class SignedIn extends React.Component {
         <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}/>
       )
     } else if (this.state.rateAFit) {
-      <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}/>
+      return (
+        <div>
+          <NavigationBar handleLogout={this.props.handleLogout} togglePostPic={this.togglePostPic} show={this.state.showPostPic} toggleRateAFit={this.toggleRateAFit} toggleTrending={this.toggleTrending}/>
+          {this.state.imageArray.map(image => <RateAFit obj={image}/>)}
+        </div>
+      )
     }
   }
 }
